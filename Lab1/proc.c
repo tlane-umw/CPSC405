@@ -48,7 +48,7 @@ char *state_to_string(enum procstate ps) {
 struct proc *find_proc(int pid) {
     struct proc *d = kernel_proc;
     while(d != NULL){
-    	if(d->pid = pid){
+    	if(d->pid == pid){
 		return d;
     	}
 	d = d->next;
@@ -96,28 +96,21 @@ void print_procs() {
  * For kernel_proc, p->parent points to kernel_proc.
  * For other procs, you have to search for p->parent in the list.
  */
-struct proc *new_proc(char name[], uint priority, int ppid) {
+struct proc *new_proc(char name[], uint priority, int ppid){
+    struct proc *d = malloc(sizeof(struct proc));
     if(strcmp(name,"kernel_proc") == 0){
-	struct proc *s = malloc(sizeof(proc));
-	strcpy(s->name,name);
-	s->priority = 0;
-	s->pid = pid;
-	s->parent = pid;
-	s->state = 3;
-	s->prev = NULL;
-	s->next = NULL;
+	strcpy(d->name,name);
+	d->priority = 0;
+	d->pid = pid;
 	pid = pid + 1;
-	return s;
-
+	return d;
     }
-    struct proc *d = malloc(sizeof(proc));
     strcpy(d->name,name);
     d->priority = priority;
     d->pid = pid;
     pid = pid + 1;
     d->parent = find_proc(ppid);
     d->state = 1;
-    enqueue_proc(d);
     return d;
 }
 
@@ -126,7 +119,31 @@ struct proc *new_proc(char name[], uint priority, int ppid) {
  */
 bool enqueue_proc(struct proc *p) {
     struct proc *d = kernel_proc;
+    int pri = p->priority;
+    if(d->next == NULL){
+	d->next = p;
+	p->prev = d;
+	return true;
+    }
+    while(d != NULL){
+		if(d->priority > pri){
+			p->prev = d->prev;
+			p->next = d;
+			d->prev->next = p;
+			d->prev = p;
+			return true;
+		}
+		d = d->next;
+    }
+    d = kernel_proc;
+    while(d->next != NULL){
+	d= d->next;
+    }
+    if((find_proc(p->pid)) == NULL){
+	d->next = p;
+	p->prev = d;
 
+    }   
     return true;
 }
 
