@@ -1,0 +1,7 @@
+procs in queue:
+pname: kernel_process, pid: 1024, ppid: 1024, priority: 0, state: RUNNABLE
+pname: Bruce, pid: 1027, ppid: 1025, priority: 1, state: EMBRYO
+pname: Gusty, pid: 1025, ppid: 1024, priority: 2, state: EMBRYO
+
+procname: Bruce, pid: 1027
+procname: Bruce, ppid: 1025

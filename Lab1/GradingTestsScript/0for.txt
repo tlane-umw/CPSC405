@@ -1,0 +1,42 @@
+#!/bin/zsh
+
+# create directory lab/
+# put 0for.txt, testX_in.txt, testX_out.txt in lab/
+# make 0for.txt executable
+# create directory name/ as subdirectory of lab/
+# place your program code and makefile in lab/name
+# cd to lab/
+# $ ./0for.txt name
+
+max=10
+
+echo "Testing $1"
+
+cd $1
+echo "pwd"
+pwd
+echo "make clean"
+make clean
+echo "make"
+make
+
+for (( i=1; i <= $max; ++i ))
+do
+    echo "Test $i"
+    head -1 ../"test"$i"_in.txt"
+    echo "./firstLab < test"$i"_in.txt > testout.txt"
+    echo "diff ../test"$i"_out.txt testout.txt"
+
+    ./firstLab < ../"test"$i"_in.txt" > testout.txt
+    diff ../"test"$i"_out.txt" testout.txt > thediff.txt
+    if [ $? != 0 ]
+    then
+       echo "test$i failed"
+       echo "test$i output"
+       cat testout.txt
+       echo "test$i output of diff between expected and actual"
+       cat thediff.txt
+    else
+       echo "test$i passed"
+    fi
+done

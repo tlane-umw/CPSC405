@@ -1,0 +1,8 @@
+# enqueue procs with same priority
+fork Gusty 2 kernel_process
+fork Emily 1 Gusty
+kill Emily
+fork Bruce 1 Gusty
+printprocs
+printpid Bruce
+printppid Bruce

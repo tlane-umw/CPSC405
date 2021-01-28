@@ -1,0 +1,6 @@
+procs in queue:
+pname: kernel_process, pid: 1024, ppid: 1024, priority: 0, state: RUNNABLE
+pname: Coletta, pid: 1028, ppid: 1027, priority: 1, state: EMBRYO
+pname: Zac, pid: 1026, ppid: 1025, priority: 3, state: EMBRYO
+pname: Gusty, pid: 1025, ppid: 1024, priority: 5, state: EMBRYO
+

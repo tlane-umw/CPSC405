@@ -1,0 +1,5 @@
+# Fork proc off a killed proc
+fork Luis 5 kernel_process
+kill Luis
+fork Raymond 8 Luis
+printprocs

@@ -1,0 +1,13 @@
+# fork many procs
+fork Gusty 11 kernel_process
+fork Bruce 5 kernel_process
+fork Joe 2 Bruce
+fork Asia 1 Gusty
+fork Emily 7 Joe
+fork Sam 6 Emily
+fork Madison 12 Joe
+fork Ben 4 Asia
+fork Bev 4 Asia
+fork Bee 4 Asia
+fork Bea 4 Asia
+printprocs

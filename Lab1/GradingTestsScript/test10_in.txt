@@ -1,0 +1,6 @@
+# Fork procs with same name
+fork Luis 3 kernel_process
+fork Luis 3 Luis
+fork Luis 3 Luis
+fork Luis 3 Luis
+printprocs

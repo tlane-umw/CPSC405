@@ -1,0 +1,4 @@
+# Attempt to kill kernel proc
+fork Gusty 4 kernel_process
+kill kernel_process
+printprocs

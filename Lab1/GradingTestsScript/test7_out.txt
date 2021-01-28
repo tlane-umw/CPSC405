@@ -1,0 +1,14 @@
+procs in queue:
+pname: kernel_process, pid: 1024, ppid: 1024, priority: 0, state: RUNNABLE
+pname: Asia, pid: 1028, ppid: 1025, priority: 1, state: EMBRYO
+pname: Joe, pid: 1027, ppid: 1026, priority: 2, state: EMBRYO
+pname: Ben, pid: 1032, ppid: 1028, priority: 4, state: EMBRYO
+pname: Bev, pid: 1033, ppid: 1028, priority: 4, state: EMBRYO
+pname: Bee, pid: 1034, ppid: 1028, priority: 4, state: EMBRYO
+pname: Bea, pid: 1035, ppid: 1028, priority: 4, state: EMBRYO
+pname: Bruce, pid: 1026, ppid: 1024, priority: 5, state: EMBRYO
+pname: Sam, pid: 1030, ppid: 1029, priority: 6, state: EMBRYO
+pname: Emily, pid: 1029, ppid: 1027, priority: 7, state: EMBRYO
+pname: Gusty, pid: 1025, ppid: 1024, priority: 11, state: EMBRYO
+pname: Madison, pid: 1031, ppid: 1027, priority: 12, state: EMBRYO
+
