@@ -126,7 +126,7 @@ bool enqueue_proc(struct proc *p) {
 	return true;
     }
     while(d != NULL){
-		if(d->priority > pri){
+		if((d->priority > pri) || (d->priority == pri)){
 			p->prev = d->prev;
 			p->next = d;
 			d->prev->next = p;
@@ -163,6 +163,10 @@ bool kill(int pid) {
     struct proc *d = find_proc(pid);
     if(d == NULL){
 	return false;
+    }
+    if(d->next == NULL){
+	d->prev->next = NULL;
+	return true;
     }
     d->killed = -1;
     d->prev->next = d->next;

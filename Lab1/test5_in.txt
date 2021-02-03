@@ -1,0 +1,5 @@
+fork Gusty 3 kernel_process
+fork Zac 5 Gusty
+fork Toby 6 Zac
+fork Megan 8 Toby
+printprocs
