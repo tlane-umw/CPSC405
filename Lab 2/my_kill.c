@@ -8,8 +8,8 @@
 #include <signal.h>
 #define FN_LEN 256
 char filename[FN_LEN];
-bool using_h = false;
-bool using_f = false;
+static bool using_h = false;
+static bool using_f = false;
 int main(int argc, char *argv[]) {
 	int pid_to_kill = 0;
 	if(argc == 1){
@@ -52,17 +52,10 @@ int main(int argc, char *argv[]) {
 		}
 		fclose(f);
 	}
-	if(argc == 2){
-		pid_to_kill = atoi(argv[1]);
-	}else if(argc == 3){
-		pid_to_kill = atoi(argv[2]);
-	}else if(argc == 5){
-		pid_to_kill = atoi(argv[4]);
-	}
-
+	pid_to_kill = atoi(argv[argc-1]);
 	printf("my_kill pid: %d\n", getpid());
-       	int status = kill(pid_to_kill, SIGINT);  
-      	int errnum = errno;  
+	int status = kill(pid_to_kill, SIGINT);  
+      	int errnum = errno; 	
 	if (status == -1) {      
 		  fprintf(stderr, "Value of errno: %d\n", errno);      
 		  perror("Error printed by perror");      
